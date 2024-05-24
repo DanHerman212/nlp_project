@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 
+# create function to load data, take filepath as input from text data and labels
 def load_data(messages_filepath, categories_filepath):
     # load messages
     messages = pd.read_csv(messages_filepath)
@@ -11,7 +12,7 @@ def load_data(messages_filepath, categories_filepath):
 
     return df
 
-
+# create function to clean the data, prepared for machine learning
 def clean_data(df):
     # create a dataframe of the 36 individual category columns
     categories = df['categories'].str.split(';', expand=True)
@@ -37,7 +38,7 @@ def clean_data(df):
     return df
     
 
-
+# create function to save the data, take the cleaned dataset and save it to an sqlite database
 def save_data(df, database_filename):
     # save the clean dataset into an sqlite database
     from sqlalchemy import create_engine
@@ -45,24 +46,30 @@ def save_data(df, database_filename):
     
     return df.to_sql('features', engine, index=False, if_exists='replace')
 
+# create main function to run the ETL pipeline
 def main():
+    # check for correct number of arguments
     if len(sys.argv) == 4:
-
+        # assign arguments to variables
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
 
+        # load data
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
               .format(messages_filepath, categories_filepath))
         df = load_data(messages_filepath, categories_filepath)
 
+        # clean data
         print('Cleaning data...')
         df = clean_data(df)
         
+        # save data
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
         
+        # print message to confirm data saved
         print('Cleaned data saved to database!')
     
-    else:
+    else: # print message to provide correct arguments
         print('Please provide the filepaths of the messages and categories '\
               'datasets as the first and second argument respectively, as '\
               'well as the filepath of the database to save the cleaned data '\
@@ -70,6 +77,6 @@ def main():
               'disaster_messages.csv disaster_categories.csv '\
               'DisasterResponse.db')
 
-
+# 
 if __name__ == '__main__':
     main()
