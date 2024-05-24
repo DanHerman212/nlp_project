@@ -6,6 +6,8 @@
 
 <p align="center">
     <img src="images/eyalgever.png" width="500" height="300">
+    <br>
+    <em>Digital Sculputre: Eyal Gever</em>
 </p>
 
 </center>
