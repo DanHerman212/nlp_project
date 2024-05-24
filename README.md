@@ -4,7 +4,9 @@
 
 <center>
 
-<img src="images/eyalgever.png" width="500" height="300" align="center">
+<p align="center">
+    <img src="images/eyalgever.png" width="500" height="300">
+</p>
 
 </center>
 
