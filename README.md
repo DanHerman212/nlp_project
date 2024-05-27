@@ -41,6 +41,7 @@ The next sections will review the data cleaning process and machine learning wor
 # Data Cleaning
 
 
+
  To run the ETL script, navigate to the data folder and run the following command:
 ```bash
 python process_data.py disaster_messages.csv disaster_categories.csv disaster_response.db

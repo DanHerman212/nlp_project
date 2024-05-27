@@ -2,23 +2,27 @@
 {% block title %}Results{% endblock %}
 
 {% block message %}
-    <hr />
-    <h4 class="text-center">MESSAGE</h4>
-    <p class="text-center"><i>{{query}}</i></p>
+    <div class="container py-2">
+        <hr class="mb-4">
+        <h4 class="text-center">MESSAGE</h4>
+        <p class="text-center"><i style="font-size: larger; font-weight: bold;">{{query}}</i></p>
+    </div>
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Result</h1>
-        <ul class="list-group">
+    <div class="container py-2">
+        <h1 class="text-center">Response Agency</h1>
+        <div class="row">
             {% for category, classification in classification_result.items() %}
                 {% if classification == 1 %}
-                    <li class="list-group-item list-group-item-success text-center">{{category.replace('_', ' ').title()}}</li>
-                {% else %}
-                    <li class="list-group-item list-group-item-dark text-center">{{category.replace('_', ' ').title()}}</li>
+                    <div class="col-md-4">
+                        <li class="list-group-item list-group-item-success text-center">{{category.replace('_', ' ').title()}}</li>
+                    </div>
+                    {% if loop.index is divisibleby 3 %}
+                        </div><div class="row">
+                    {% endif %}
                 {% endif %}
             {% endfor %}
-
         </div>
     </div>
-
 {% endblock %}
