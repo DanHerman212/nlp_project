@@ -24,7 +24,7 @@ Included in this project is an ETL pipeline to clean and load the data, a machin
 <center>
 
 <p align="center">
-    <img src="images/message_response.png" width="300" height="500">
+    <img src="images/message_response.png" width="400" height="600">
     <br>
     <font size='2'><em>WebApp Dashboard</em></font>
 </p>
