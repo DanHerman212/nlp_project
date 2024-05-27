@@ -12,28 +12,28 @@
 
 </center>
 
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Data Cleaning](#data-cleaning)  
-3. [Machine Learning](#machine-learning)
-3. [Web Application](#Web-Application)
-4. [File Descriptions](#file-descriptions)
-5. [Licensing, Authors, and Acknowledgements](#licensing-authors-and-acknowledgements)
-
 
 # Project Overiew
-This project addresses a problem that occurs during a disaster relief response.   There are too many messages coming in from the public, and the response agencies are unable to filter through the messages to find those that are important.
+The goal for this project is to create a web application to assist with a natural disaster response.<br>
+<br>
+Durring a natural disaster there are many agencies involved in responding to specific incidents that are part of the larger disaster.  Response agencies get floaded with messages from people in need of help.  Realistically, only a small percent of messages are real emergencies that require response.  This creates a challenge for responders, as they don't have the time and resources to sift through all the messages to find the ones that are real emergencies.<br>
+<br>
+To respond to this challenge, we've build a web application, powered by machine learning, that has been trained on 20,000 disaster response messages, from 36 different categories.  The application can take a message as input, analyze the words and identify the appropriate agencies that are required for response.<br>
+<br>
+Included in this project is an ETL pipeline to clean and load the data, a machine learning pipeline to train the model, and a web application to display the results.<br>
+<center>
 
-The goal of this project is to build a machine learning model that can categorize the messages and dispatch them to the appropriate agency, with a good level of accuracy.
+<p align="center">
+    <img src="images/message_response.png" width="600" height="400">
+    <br>
+    <font size='2'><em>Digital Sculputre: Eyal Gever</em></font>
+</p>
 
-The data for this project comes from [Appen](https://www.appen.com/), and includes approximately 25,000 messages that were sent during a disaster.  The data was cleaned and preprocessed, and then used to train a machine learning model.
+</center>
 
-The project includes a web application that will allow the user to input a message, and the model will categorize the message and dispatch it to the appropriate agency.  
 
 # Data Cleaning
-An ETL script was written to clean and preprocess the data which will be used to train a machine learning model.
-The script has 3 parameters, the first two are the paths to the csv files containing the messages and labels, and the third is the path to the database where the cleaned data will be stored.
+
 
  To run the ETL script, navigate to the data folder and run the following command:
 ```bash
@@ -42,9 +42,7 @@ python process_data.py disaster_messages.csv disaster_categories.csv disaster_re
 The script will extract the required data, transform into a usable format, and load it into a SQLite database.
 
 # Machine Learning
-A machine learning pipeline was created to train a model to classify the messages.  The pipeline includes transformers to preprocess the text data, and a classifier to categorize the messages.  The script has two parameters, the first is the path to the database containing the cleaned data, and the second is the path to the pickle file where the model will be saved.
 
-To run the machine learning pipeline, use the following command:
 ```bash
 python train_classifier.py DisasterResponse.db classifier.pkl
 ```
