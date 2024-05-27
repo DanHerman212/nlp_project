@@ -12,6 +12,11 @@
 
 </center>
 
+# Table of Contents
+1. [Project Overview](#project-overview)
+2. [Data Cleaning](#data-cleaning)
+3. [Machine Learning](#machine-learning)
+4. [Web Application](#web-application)
 
 # Project Overiew
 The goal for this project is to create a web application to assist with a natural disaster response.<br>
@@ -21,11 +26,13 @@ Durring a natural disaster there are many agencies involved in responding to spe
 To respond to this challenge, we've build a web application, powered by machine learning, that has been trained on 20,000 disaster response messages, from 36 different categories.  The application can take a message as input, analyze the words and identify the appropriate agencies that are required for response.<br>
 <br>
 Included in this project is an ETL pipeline to clean and load the data, a machine learning pipeline to train the model, and a web application to display the results.<br>
+<br>
+The next sections will review the data cleaning process and machine learning workflows, followed by instructions to run the web application.
 
 <center>
 
 <p align="center">
-    <img src="images/message_response.png">
+    <img src="images/response_dashboard.png">
     <br>
     <font size='2'><em>WebApp Dashboard</em></font>
 </p>
