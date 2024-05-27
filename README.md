@@ -27,7 +27,7 @@ To respond to this challenge, we've build a web application, powered by machine 
 <center>
 
 <p align="center">
-    <img src="images/response_dashboard.png">
+    <img src="images/response_dashboard1.png">
     <br>
     <font size='2'><em>WebApp Dashboard</em></font>
 </p>
