@@ -5,7 +5,7 @@
 <center>
 
 <p align="center">
-    <img src="images/eyalgever.png" width="700" height="300">
+    <img src="images/eyalgever.png">
     <br>
     <font size='2'><em>Digital Sculputre: Eyal Gever</em></font>
 </p>
@@ -21,10 +21,11 @@ Durring a natural disaster there are many agencies involved in responding to spe
 To respond to this challenge, we've build a web application, powered by machine learning, that has been trained on 20,000 disaster response messages, from 36 different categories.  The application can take a message as input, analyze the words and identify the appropriate agencies that are required for response.<br>
 <br>
 Included in this project is an ETL pipeline to clean and load the data, a machine learning pipeline to train the model, and a web application to display the results.<br>
+
 <center>
 
 <p align="center">
-    <img src="images/message_response.png" width="649" height="1145">
+    <img src="images/message_response.png">
     <br>
     <font size='2'><em>WebApp Dashboard</em></font>
 </p>
