@@ -47,7 +47,9 @@ def tokenize(text):
 # create function to build the model and pipeline steps
 def build_model():
     pipeline = Pipeline([ # Pipeline of transforms with a final estimator
-        ('vect', CountVectorizer(tokenizer=tokenize)), # Convert a collection of text documents to a matrix of token counts
+        ('vect', CountVectorizer(tokenizer=tokenize,
+                                 min_df=5,
+                                 max_df=0.75)), # Convert a collection of text documents to a matrix of token counts
         ('tfidf', TfidfTransformer()), # Transform a count matrix to a normalized tf or tf-idf representation
         ('clf', MultiOutputClassifier(RandomForestClassifier())) # Multi target classification
     ])

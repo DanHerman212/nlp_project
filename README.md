@@ -1,4 +1,4 @@
-# Disaster Response: Message Classification
+# Disaster Relief Response: Message Classification
 
 <font size='4'>
 
@@ -14,32 +14,48 @@
 
 ## Table of Contents
 
-1. [Project Motivation](#project-motivation)
-2. [Results](#results)
-3. [Installation](#installation)
+1. [Project Overview](#project-overview)
+2. [Data Cleaning](#data-cleaning)  
+3. [Machine Learning](#machine-learning)
+3. [Web Application](#Web-Application)
 4. [File Descriptions](#file-descriptions)
 5. [Licensing, Authors, and Acknowledgements](#licensing-authors-and-acknowledgements)
 
 
-# Project Motivation
-Following a disaster, typically millions of messages come flooding in, either directly or through social media.
+# Project Overiew
+This project addresses a problem that occurs during a disaster relief response.   There are too many messages coming in from the public, and the response agencies are unable to filter through the messages to find those that are important.
 
-This is a time when response agencies have the least capability to filter through the messages and filter out what’s important.
+The goal of this project is to build a machine learning model that can categorize the messages and dispatch them to the appropriate agency, with a good level of accuracy.
 
-Typically only 1 in 1,000 messages are relevant to the disaster response professional.
+The data for this project comes from [Appen](https://www.appen.com/), and includes approximately 25,000 messages that were sent during a disaster.  The data was cleaned and preprocessed, and then used to train a machine learning model.
 
-The way the response works is that different organizations are responsible for different parts of the problem.
+The project includes a web application that will allow the user to input a message, and the model will categorize the message and dispatch it to the appropriate agency.  
 
-For this project, we will analyze approximately 25,000 messages that we received as tweets or text messages during a disaster.  We will further nvestigate trends within the data, and build supervised machine learning model to categorize the message and dispatch to the appropriate agency.
+# Data Cleaning
+An ETL script was written to clean and preprocess the data which will be used to train a machine learning model.
+The script has 3 parameters, the first two are the paths to the csv files containing the messages and labels, and the third is the path to the database where the cleaned data will be stored.
 
-The project includes a web application, that will allow the user to post a message and extract the appropriate category to dispatch to the appropriate agency.
+ To run the ETL script, navigate to the data folder and run the following command:
+```bash
+python process_data.py disaster_messages.csv disaster_categories.csv disaster_response.db
+```
+The script will extract the required data, transform into a usable format, and load it into a SQLite database.
 
-<p align="center">
-    <img src="images/word_classifier.png" width="500" height="600">
-    <br>
-    <font size='2'><em>Word Classifer: Web Application</em></font>
-</p>
+# Machine Learning
+A machine learning pipeline was created to train a model to classify the messages.  The pipeline includes transformers to preprocess the text data, and a classifier to categorize the messages.  The script has two parameters, the first is the path to the database containing the cleaned data, and the second is the path to the pickle file where the model will be saved.
 
+To run the machine learning pipeline, use the following command:
+```bash
+python train_classifier.py DisasterResponse.db classifier.pkl
+```
 
+# Web Application
+A web application was created to allow the user to input a message, and the model will categorize the message and dispatch it to the appropriate agency.
+
+To run the web application, navigate to the app folder and run the following command:
+```bash
+python run.py
+```
+Type http://127.0.0.1:3000 in the web browser to access the web application from the internal webserver.
 
 </font>
