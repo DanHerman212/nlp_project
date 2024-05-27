@@ -24,11 +24,6 @@ The goal for this project is to create a web application to assist with a natura
 Durring a natural disaster there are many agencies involved in responding to specific incidents that are part of the larger disaster.  Response agencies get floaded with messages from people in need of help.  Realistically, only a small percent of messages are real emergencies that require response.  This creates a challenge for responders, as they don't have the time and resources to sift through all the messages to find the ones that are real emergencies.<br>
 <br>
 To respond to this challenge, we've build a web application, powered by machine learning, that has been trained on 20,000 disaster response messages, from 36 different categories.  The application can take a message as input, analyze the words and identify the appropriate agencies that are required for response.<br>
-<br>
-Included in this project is an ETL pipeline to clean and load the data, a machine learning pipeline to train the model, and a web application to display the results.<br>
-<br>
-The next sections will review the data cleaning process and machine learning workflows, followed by instructions to run the web application.
-
 <center>
 
 <p align="center">
@@ -38,7 +33,10 @@ The next sections will review the data cleaning process and machine learning wor
 </p>
 
 </center>
-
+<br>
+Included in this project is an ETL pipeline to clean and load the data, a machine learning pipeline to train the model, and a web application to display the results.<br>
+<br>
+The next sections will review the data cleaning process and machine learning workflows, followed by instructions to run the web application.
 
 # Data Cleaning
 
