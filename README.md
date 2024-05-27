@@ -5,7 +5,7 @@
 <center>
 
 <p align="center">
-    <img src="images/eyalgever.png" width="500" height="300">
+    <img src="images/eyalgever.png" width="725" height="300">
     <br>
     <font size='2'><em>Digital Sculputre: Eyal Gever</em></font>
 </p>
@@ -24,9 +24,9 @@ Included in this project is an ETL pipeline to clean and load the data, a machin
 <center>
 
 <p align="center">
-    <img src="images/message_response.png" width="600" height="400">
+    <img src="images/message_response.png" width="350" height="550">
     <br>
-    <font size='2'><em>Digital Sculputre: Eyal Gever</em></font>
+    <font size='2'><em>WebApp Dashboard</em></font>
 </p>
 
 </center>
