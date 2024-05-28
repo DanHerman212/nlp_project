@@ -109,3 +109,12 @@ python run.py
 Type http://127.0.0.1:3000 in the web browser to access the web application from the internal webserver.
 
 </font>
+
+### Folder Structure
+<left>
+<p align="left">
+    <img src="images/tree.png">
+    <br>
+    <font size='2'><em>Accuracy for Each Category</em></font>
+</p>
+</left>
