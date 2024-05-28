@@ -14,6 +14,8 @@ from sklearn.metrics import classification_report, accuracy_score, multilabel_co
 from sqlalchemy import create_engine # SQL toolkit and Object Relational Mapper
 import joblib # joblib is a set of tools to provide lightweight pipelining in Python
 import warnings # warning control
+from sklearn.model_selection import GridSearchCV # scikit-learn, model selection, grid search
+
 warnings.filterwarnings("ignore") # ignore warnings
 
 # create function to load data from SQLite database
@@ -54,7 +56,17 @@ def build_model():
         ('clf', MultiOutputClassifier(RandomForestClassifier())) # Multi target classification
     ])
 
-    return pipeline
+    # specify parameters for grid search
+    parameters = {
+        'vect__ngram_range': ((1, 1), (1, 2)), # The lower and upper boundary of the range of n-values for different n-grams to be extracted
+        'clf__estimator__n_estimators': [50, 100], # The number of trees in the forest
+        'clf__estimator__min_samples_split': [2, 4] # The minimum number of samples required to split an internal node
+    }
+    
+    # create grid search object
+    cv = GridSearchCV(pipeline, param_grid=parameters, verbose=2, n_jobs=1)
+
+    return cv
 
 
 # create function to evaluate the model results
