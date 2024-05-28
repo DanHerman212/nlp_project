@@ -64,16 +64,25 @@ python process_data.py disaster_messages.csv disaster_categories.csv disaster_re
 The script will extract the required data, transform into a usable format, and load it into a SQLite database.
 
 # Machine Learning
-We created a machine learning pipeline to process the incoming messages and classify them to the appropriate agency for response.  The pipeline uses two techniques for machine learning, the first is Natural Language Processing (NLP), we assign values to words based on frequency.  We also strip out words that don't provide meaning.  The second technique is a multi-output classifier, which assigns the message to one or more categories.<br>
+We created a machine learning pipeline to process the incoming messages and classify them to the appropriate agency for response.  The pipeline uses two techniques for machine learning, the first is Natural Language Processing (NLP), we assign values to words based on frequency.  We also strip out words that don't provide meaning.  We then train two different machine learning classifiers, to classify the messages to the appropriate category.  We train two models with different hyperparameters to compare the results and achieve the best accuracy.<br>
+<br>
+We use Precision as an evaluation metric, as it's important to correctly classify messages to the appropriate agency.  We don't want to miss any real emergencies.<br>
 
-The NLP process is listed as follows:
-1. Tokenize the messages - split the messages into individual words
-2. Remove stop words - remove common words that don't add value to the analysis, e.g. 'the', 'and', 'is'
-3. Lemmatize the words - reduce the words to their root form, e.g. 'running' to 'run'
-4. Vectorize the words - convert the words into a numerical format that can be used by the model
-5. Apply TFIDF - Term Frequency Inverse Document Frequency, a method to determine the importance of a word in a document relative to a collection of documents
+<center>
+<p align="center">
+    <img src="images/model_output.png">
+    <br>
+    <font size='2'><em>Four Different Iterations of Training were Performed</em></font>
+</p>
+</center>
 
+There were four rounds of training performed, each with different hyperparameters, listed as follows:
+1. Benchmark Model -  Random Forest Classifier with default hyperparameters
+2. Grid Search Model - Random Forest Classifier with Grid Search hyperparameters (average of 15 models)
+3. Best Params - Random Forest Classifier with best hyperparameters from Grid Search
+4. XGBoost Model - XGBoost Classifier with Grid Search with best hyperparameters
 
+The Benchmark model was the most accurate approximately 40% of the time.
 
 ```bash
 python train_classifier.py DisasterResponse.db classifier.pkl
