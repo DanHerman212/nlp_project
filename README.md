@@ -52,7 +52,7 @@ There were approximately 25,000 messages in the dataset.  These messages were as
 </p>
 </center>
 
-
+The top 20 caetgories are associated with 93% of the messages analyzed.
 
 # Data Cleaning
 An ETL script was created to perform the data cleaning process.  The script will extract the data from two CSV files, the first containing messages and the second containing the disaster response categories.  The script will then transform the data into a usable format, and load it into a SQLite database.<br>
@@ -75,14 +75,13 @@ We use Precision as an evaluation metric, as it's important to correctly classif
     <font size='2'><em>Four Different Iterations of Training were Performed</em></font>
 </p>
 </center>
+The Benchmark model was the most accurate approximately 40% of the time.<br><br>
 
 There were four rounds of training performed, each with different hyperparameters, listed as follows:
 1. Benchmark Model -  Random Forest Classifier with default hyperparameters
 2. Grid Search Model - Random Forest Classifier with Grid Search hyperparameters (average of 15 models)
 3. Best Params - Random Forest Classifier with best hyperparameters from Grid Search
 4. XGBoost Model - XGBoost Classifier with Grid Search with best hyperparameters
-
-The Benchmark model was the most accurate approximately 40% of the time.
 
 <center>
 <p align="center">
@@ -93,6 +92,8 @@ The Benchmark model was the most accurate approximately 40% of the time.
 </center>
 
 The classifier performed above average for accuracy for two thirds of the response caetgories.  The classifier performed poorly for the remaining third of the categories.  This is likely due to the small number of messages in the dataset for these categories.
+
+To train the classifier, navigate to the models folder and run the following command:
 
 ```bash
 python train_classifier.py DisasterResponse.db classifier.pkl
