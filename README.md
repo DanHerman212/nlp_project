@@ -84,6 +84,16 @@ There were four rounds of training performed, each with different hyperparameter
 
 The Benchmark model was the most accurate approximately 40% of the time.
 
+<center>
+<p align="center">
+    <img src="images/label_output.png">
+    <br>
+    <font size='2'><em>Accuracy for Each Category</em></font>
+</p>
+</center>
+
+The classifier performed above average for accuracy for two thirds of the response caetgories.  The classifier performed poorly for the remaining third of the categories.  This is likely due to the small number of messages in the dataset for these categories.
+
 ```bash
 python train_classifier.py DisasterResponse.db classifier.pkl
 ```
