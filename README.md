@@ -96,7 +96,7 @@ The classifier performed above average for accuracy for two thirds of the respon
 To train the classifier, navigate to the models folder and run the following command:
 
 ```bash
-python train_classifier.py DisasterResponse.db classifier.pkl
+python train_classifier.py ../data/disaster_response.db classifier.pkl
 ```
 
 # Web Application
